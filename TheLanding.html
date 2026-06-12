@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lakeside Landing Kitchen + Bar — Clear Lake, Iowa</title>
+<link href="images.png" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0d2235;
+  --navy-mid:#163550;
+  --water:#1a5c8a;
+  --sky:#4d9cc7;
+  --foam:#e8f4f9;
+  --sand:#f7f2e8;
+  --warm:#c9893a;
+  --warm-light:#e8c48a;
+  --white:#ffffff;
+  --text-dark:#0d1a26;
+  --text-mid:#3a5068;
+  --text-light:#7a9ab0;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--sand);color:var(--text-dark);line-height:1.7;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 3.5rem;
+  background:rgba(13,34,53,0.96);
+  backdrop-filter:blur(10px);
+}
+.nav-brand{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+.nav-anchor{
+  width:32px;height:32px;
+  border:1.5px solid var(--warm);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;
+  flex-shrink:0;
+}
+.nav-name{
+  font-family:'Fraunces',serif;
+  font-size:1.15rem;font-weight:600;
+  color:var(--white);letter-spacing:0.02em;
+}
+.nav-name span{color:var(--warm);}
+.nav-links{display:flex;gap:2.25rem;list-style:none;align-items:center;}
+.nav-links a{
+  color:rgba(255,255,255,0.65);text-decoration:none;
+  font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:400;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--warm);}
+.nav-reserve{
+  background:var(--warm)!important;color:var(--navy)!important;
+  padding:0.45rem 1.3rem;font-weight:500!important;
+  transition:background 0.2s!important;
+}
+.nav-reserve:hover{background:var(--warm-light)!important;}
+
+/* HERO */
+#home{
+  min-height:100vh;
+  background:
+    linear-gradient(to bottom,rgba(8,22,38,0.65) 0%,rgba(13,34,53,0.4) 50%,rgba(13,34,53,0.88) 100%),
+    url("Lakeside Inn Exterior.jpg") center/cover no-repeat;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:8rem 2rem 5rem;
+  position:relative;
+}
+.hero-wave{
+  position:absolute;bottom:0;left:0;right:0;
+  height:80px;overflow:hidden;
+}
+.hero-wave svg{display:block;width:100%;height:80px;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--warm);font-weight:500;margin-bottom:1.5rem;
+  animation:fadeUp 0.6s ease both;
+}
+.hero-tag::before,
+.hero-tag::after{content:'';display:block;width:30px;height:1px;background:var(--warm);opacity:0.5;}
+h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(2.8rem,7vw,5.5rem);
+  color:var(--white);line-height:1.05;
+  margin-bottom:1rem;
+  animation:fadeUp 0.6s 0.12s ease both;
+}
+h1 em{font-style:italic;color:var(--warm);}
+.hero-desc{
+  font-size:1rem;color:rgba(255,255,255,0.65);
+  max-width:50ch;margin:0 auto 2.5rem;line-height:1.8;
+  animation:fadeUp 0.6s 0.22s ease both;
+}
+.hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp 0.6s 0.32s ease both;}
+.btn-primary{
+  background:var(--warm);color:var(--navy);
+  padding:0.85rem 2.4rem;font-family:'DM Sans',sans-serif;
+  font-size:0.82rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
+  border:none;cursor:pointer;text-decoration:none;display:inline-block;
+  transition:background 0.2s,transform 0.15s;
+}
+.btn-primary:hover{background:var(--warm-light);transform:translateY(-2px);}
+.btn-ghost{
+  background:transparent;color:var(--white);
+  padding:0.85rem 2.4rem;font-family:'DM Sans',sans-serif;
+  font-size:0.82rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;
+  border:1px solid rgba(255,255,255,0.4);cursor:pointer;text-decoration:none;display:inline-block;
+  transition:border-color 0.2s,background 0.2s;
+}
+.btn-ghost:hover{border-color:var(--warm);background:rgba(201,137,58,0.12);}
+.hero-badges{
+  position:absolute;bottom:5.5rem;
+  display:flex;gap:3rem;
+  animation:fadeUp 0.6s 0.44s ease both;
+}
+.hero-badge{text-align:center;}
+.hero-badge-num{font-family:'Fraunces',serif;font-size:2rem;color:var(--warm);display:block;}
+.hero-badge-label{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.55);}
+
+/* STRIP */
+.info-strip{
+  background:var(--navy);
+  display:flex;justify-content:center;gap:0;
+  overflow:hidden;
+}
+.strip-item{
+  padding:1.1rem 3rem;border-right:1px solid rgba(255,255,255,0.08);
+  display:flex;align-items:center;gap:0.75rem;
+  font-size:0.8rem;color:rgba(255,255,255,0.65);letter-spacing:0.05em;
+}
+.strip-item:last-child{border-right:none;}
+.strip-icon{font-size:1.1rem;}
+.strip-item strong{color:var(--warm);font-weight:500;}
+
+/* MENU */
+#menu{background:var(--white);padding:5rem 3.5rem;}
+.menu-header{text-align:center;max-width:600px;margin:0 auto 3.5rem;}
+.eyebrow{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--warm);font-weight:500;margin-bottom:0.6rem;}
+.section-title{font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3rem);color:var(--navy);line-height:1.15;}
+.section-title em{font-style:italic;color:var(--sky);}
+.menu-nav{
+  display:flex;justify-content:center;gap:0;flex-wrap:wrap;
+  border-bottom:1px solid #e8e0d4;margin-bottom:3rem;
+}
+.mnav-btn{
+  background:none;border:none;
+  padding:0.75rem 1.75rem;font-family:'DM Sans',sans-serif;
+  font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--text-light);cursor:pointer;
+  border-bottom:2px solid transparent;margin-bottom:-1px;
+  transition:all 0.2s;
+}
+.mnav-btn.active{color:var(--warm);border-bottom-color:var(--warm);}
+.menu-panel{display:none;max-width:1000px;margin:0 auto;}
+.menu-panel.active{display:block;}
+.menu-category{margin-bottom:3rem;}
+.menu-cat-title{
+  font-family:'Fraunces',serif;font-size:1.5rem;
+  color:var(--navy);margin-bottom:0.25rem;font-weight:600;
+}
+.menu-cat-sub{font-size:0.82rem;color:var(--text-light);margin-bottom:1.5rem;font-style:italic;}
+.menu-divider{height:1px;background:linear-gradient(to right,var(--warm) 40px,#e8e0d4 40px);margin-bottom:1.5rem;}
+.menu-items{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.menu-item{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:0.9rem 0;border-bottom:1px solid #f0ebe2;gap:1rem;
+}
+.menu-item:nth-child(odd){padding-right:2.5rem;}
+.menu-item:nth-child(even){padding-left:2.5rem;border-left:1px solid #f0ebe2;}
+.item-info{
+.item-name{font-size:0.95rem;font-weight:400;color:var(--text-dark);}
+.item-desc{font-size:0.78rem;color:var(--text-light);margin-top:0.15rem;line-height:1.5;max-width:32ch;}
+.item-price{
+  font-family:'Fraunces',serif;font-size:1.1rem;
+  color:var(--warm);white-space:nowrap;flex-shrink:0;
+}
+}
+.monday-badge{
+  display:inline-block;
+  background:var(--foam);color:var(--water);
+  font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.15rem 0.6rem;font-weight:500;margin-left:0.5rem;vertical-align:middle;
+}
+.kids-note{
+  background:var(--foam);border-left:3px solid var(--sky);
+  padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:0.85rem;color:var(--text-mid);
+}
+
+/* DRINKS */
+.drinks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1000px;margin:0 auto;}
+.drink-card{border:1px solid #e8e0d4;padding:1.75rem;}
+.drink-card h3{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--navy);margin-bottom:0.25rem;}
+.drink-card-sub{font-size:0.75rem;color:var(--warm);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.25rem;}
+.drink-item{display:flex;justify-content:space-between;padding:0.45rem 0;border-bottom:1px solid #f0ebe2;font-size:0.85rem;}
+.drink-item:last-child{border-bottom:none;}
+.drink-item span:first-child{color:var(--text-dark);}
+.drink-item span:last-child{color:var(--warm);font-weight:500;}
+.drink-item.no-price span:last-child{color:var(--text-light);font-style:italic;}
+.special-card{
+  background:var(--navy);color:var(--white);
+  padding:1.75rem;border:none;
+}
+.special-card h3{color:var(--warm);}
+.special-card .drink-item{border-bottom-color:rgba(255,255,255,0.1);}
+.special-card .drink-item span:first-child{color:rgba(255,255,255,0.8);}
+
+/* ABOUT */
+#about{
+  background:var(--navy);padding:6rem 3.5rem;
+  position:relative;overflow:hidden;
+}
+#about::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center;position:relative;}
+.about-img-wrap{position:relative;}
+.about-img-wrap img{width:100%;height:460px;object-fit:cover;display:block;}
+.about-float{
+  position:absolute;bottom:-1.5rem;right:-1.5rem;
+  background:var(--warm);padding:1.5rem;
+  width:160px;text-align:center;
+}
+.about-float p{font-family:'Fraunces',serif;font-size:2rem;color:var(--navy);}
+.about-float span{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--navy);opacity:0.7;}
+.about-text .eyebrow{color:var(--warm-light);}
+.about-text h2{font-family:'Fraunces',serif;font-size:2.5rem;color:var(--white);line-height:1.2;margin-bottom:1.5rem;}
+.about-text h2 em{font-style:italic;color:rgba(255,255,255,0.4);}
+.about-text p{color:rgba(255,255,255,0.65);font-size:0.95rem;line-height:1.9;margin-bottom:1rem;}
+.about-pills{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1.5rem;}
+.pill{
+  border:1px solid rgba(255,255,255,0.2);
+  padding:0.35rem 1rem;font-size:0.72rem;
+  letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);
+}
+
+/* HOURS & CONTACT */
+#contact{background:var(--sand);padding:6rem 3.5rem;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.5rem;max-width:1000px;margin:3rem auto 0;}
+.contact-block{background:var(--white);padding:2rem;}
+.contact-block h3{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--navy);margin-bottom:0.3rem;}
+.contact-block .cb-tag{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm);margin-bottom:1.25rem;display:block;}
+.hours-row{display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid #f0ebe2;font-size:0.85rem;}
+.hours-row:last-child{border-bottom:none;}
+.hours-row span:first-child{color:var(--text-mid);}
+.hours-row span:last-child{color:var(--text-dark);font-weight:400;}
+.contact-block p{font-size:0.88rem;color:var(--text-mid);line-height:1.8;}
+.contact-block a{color:var(--water);text-decoration:none;}
+.contact-block a:hover{color:var(--warm);}
+.map-placeholder{
+  max-width:1000px;margin:2.5rem auto 0;height:260px;
+  background:var(--foam);border:1px solid #d4e8f0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.85rem;color:var(--text-light);text-align:center;
+  flex-direction:column;gap:0.5rem;
+}
+
+/* FOOTER */
+footer{
+  background:var(--navy);padding:2.5rem 3.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-brand{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--warm);}
+.footer-brand span{color:rgba(255,255,255,0.4);font-style:italic;}
+footer p{font-size:0.75rem;color:rgba(255,255,255,0.3);letter-spacing:0.05em;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-brand">
+    <div class="nav-anchor">⚓</div>
+    <div class="nav-name">Lakeside <span>Landing</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Hours & Contact</a></li>
+    <li><a href="tel:6413575124" class="nav-reserve">Call Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <p class="hero-tag">Clear Lake, Iowa</p>
+  <h1>Kitchen + Bar<br><em>On the Water</em></h1>
+  <p class="hero-desc">Relaxed waterfront dining at Lakeside Inn. Wings, burgers, seafood bites, craft drinks — with a boat dock and front-row views of Clear Lake.</p>
+  <div class="hero-ctas">
+    <a href="#menu" class="btn-primary">View the Menu</a>
+    <a href="tel:6413575124" class="btn-ghost">Call (641) 357-5124</a>
+  </div>
+  <div class="hero-badges">
+    <div class="hero-badge">
+      <span class="hero-badge-num">4.1★</span>
+      <span class="hero-badge-label">Google Rating</span>
+    </div>
+    <div class="hero-badge">
+      <span class="hero-badge-num">486</span>
+      <span class="hero-badge-label">Reviews</span>
+    </div>
+    <div class="hero-badge">
+      <span class="hero-badge-num">11–9</span>
+      <span class="hero-badge-label">Open Daily</span>
+    </div>
+  </div>
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<div class="info-strip">
+  <div class="strip-item"><span class="strip-icon">📍</span>1603 S Shore Dr #2720, Clear Lake, IA</div>
+  <div class="strip-item"><span class="strip-icon">🕐</span>Open Daily <strong>11 AM – 9 PM</strong></div>
+  <div class="strip-item"><span class="strip-icon">📞</span><strong>(641) 357-5124</strong></div>
+  <div class="strip-item"><span class="strip-icon">⛵</span>Boat Dock Available</div>
+  <div class="strip-item"><span class="strip-icon">🔥</span>Outdoor Seating & Fireplace</div>
+</div>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="menu-header">
+    <p class="eyebrow">What's Cooking</p>
+    <h2 class="section-title">Our <em>Menu</em></h2>
+  </div>
+  <div class="menu-nav">
+    <button class="mnav-btn active" onclick="showMenu('appetizers')">Appetizers</button>
+    <button class="mnav-btn" onclick="showMenu('mains')">Mains</button>
+    <button class="mnav-btn" onclick="showMenu('salads')">Salads</button>
+    <button class="mnav-btn" onclick="showMenu('kids')">Kids</button>
+    <button class="mnav-btn" onclick="showMenu('sides')">Sides & Dessert</button>
+    <button class="mnav-btn" onclick="showMenu('drinks')">Drinks</button>
+  </div>
+
+  <!-- APPETIZERS -->
+  <div class="menu-panel active" id="panel-appetizers">
+    <div class="menu-category">
+      <div class="menu-cat-title">The Bait</div>
+      <div class="menu-cat-sub">Starters & sharables to get things going</div>
+      <div class="menu-divider"></div>
+      <div class="menu-items">
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Bruschetta <span class="monday-badge">Mon $11</span></div></div>
+          <div class="item-price">$14</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Chicken Wings <span class="monday-badge">Mon $10.50</span></div></div>
+          <div class="item-price">$12.95</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Calamari <span class="monday-badge">Mon $13</span></div></div>
+          <div class="item-price">$16</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Cheese Curds <span class="monday-badge">Mon $10</span></div></div>
+          <div class="item-price">$13</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Coconut Shrimp <span class="monday-badge">Mon $14</span></div></div>
+          <div class="item-price">$17</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <div class="item-name">Crab Nachos <span class="monday-badge">Mon $14</span></div>
+            <div class="item-desc">Herbed cream cheese & buttery lump crab, sweet thai chili sauce, spring onions over fresh house wonton chips</div>
+          </div>
+          <div class="item-price">$18</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Hummus <span class="monday-badge">Mon $10</span></div></div>
+          <div class="item-price">$13</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Large Onion Rings</div></div>
+          <div class="item-price">$12</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Buffalo Chicken Dip</div></div>
+          <div class="item-price">$8</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.8rem;color:var(--text-light);text-align:center;margin-top:1rem;">⭐ Monday Specials pricing shown in blue badges — save on every appetizer every Monday!</p>
+  </div>
+
+  <!-- MAINS -->
+  <div class="menu-panel" id="panel-mains">
+    <div class="menu-category">
+      <div class="menu-cat-title">The Main Catch</div>
+      <div class="menu-cat-sub">Burgers, sandwiches & lake-worthy entrées</div>
+      <div class="menu-divider"></div>
+      <div class="menu-items">
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">1832 Burger</div></div>
+          <div class="item-price">$12</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">BLT on Ciabatta</div></div>
+          <div class="item-price">$12</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">BLT Wrap</div></div>
+          <div class="item-price">$14</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Breaded Pork Loin</div></div>
+          <div class="item-price">$14</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Chicken Bruschetta Sandwich</div></div>
+          <div class="item-price">$16</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Chicken Bruschetta Wrap</div></div>
+          <div class="item-price">$14</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Chicken Caesar Wrap</div></div>
+          <div class="item-price">$14</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info">
+            <div class="item-name">Fish N Chips</div>
+            <div class="item-desc">Seasonal battered white fish, lemon dill tartar sauce, house beer battered fries with malt vinegar</div>
+          </div>
+          <div class="item-price">$16</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Italian Beef</div></div>
+          <div class="item-price">$14</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Rye & Roast Beef Stack</div></div>
+          <div class="item-price">$14</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SALADS -->
+  <div class="menu-panel" id="panel-salads">
+    <div class="menu-category">
+      <div class="menu-cat-title">On Dry Land</div>
+      <div class="menu-cat-sub">Fresh salads — light, crisp, and satisfying</div>
+      <div class="menu-divider"></div>
+      <div class="menu-items">
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Caesar Salad</div></div>
+          <div class="item-price">$12</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">House Salad</div></div>
+          <div class="item-price">$12</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Seafood Salad</div></div>
+          <div class="item-price">$16</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Taco Salad</div></div>
+          <div class="item-price">$14</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Autumn Fall Salad</div></div>
+          <div class="item-price">$12</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KIDS -->
+  <div class="menu-panel" id="panel-kids">
+    <div class="menu-category">
+      <div class="menu-cat-title">Lil' Landers</div>
+      <div class="menu-cat-sub">Kids' meals for our youngest crew members</div>
+      <div class="menu-divider"></div>
+      <div class="kids-note">All kids' meals include a choice of side. Bundle (meal + side + cookie or Icee Pop) for just $9.</div>
+      <div class="menu-items">
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Bubbler Burger</div></div>
+          <div class="item-price">$6</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Buoy Bites Corn Dogs</div></div>
+          <div class="item-price">$6</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Critter Chunks</div></div>
+          <div class="item-price">$6</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Icee Pops</div></div>
+          <div class="item-price">$1</div>
+        </div>
+        <div class="menu-item">
+          <div class="item-info"><div class="item-name">Bundle — Meal, Side, Cookie or Icee Pop</div></div>
+          <div class="item-price">$9</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDES & DESSERT -->
+  <div class="menu-panel" id="panel-sides">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1000px;margin:0 auto;">
+      <div class="menu-category">
+        <div class="menu-cat-title">Sides</div>
+        <div class="menu-divider"></div>
+        <div class="menu-items" style="grid-template-columns:1fr;">
+          <div class="menu-item" style="padding-right:0;border-left:none;padding-left:0;"><div class="item-name">Coleslaw</div><div class="item-price" style="color:var(--text-light);font-size:0.85rem;">Ask server</div></div>
+          <div class="menu-item" style="padding-right:0;border-left:none;padding-left:0;"><div class="item-name">Fresh Fruit</div><div class="item-price" style="color:var(--text-light);font-size:0.85rem;">Ask server</div></div>
+          <div class="menu-item" style="padding-right:0;border-left:none;padding-left:0;"><div class="item-name">Fries</div><div class="item-price" style="color:var(--text-light);font-size:0.85rem;">Ask server</div></div>
+          <div class="menu-item" style="padding-right:0;border-left:none;padding-left:0;"><div class="item-name">Large Onion Rings</div><div class="item-price">$7</div></div>
+          <div class="menu-item" style="padding-right:0;border-left:none;padding-left:0;"><div class="item-name">Onion Rings</div><div class="item-price" style="color:var(--text-light);font-size:0.85rem;">Ask server</div></div>
+          <div class="menu-item" style="padding-right:0;border-left:none;padding-left:0;"><div class="item-name">Sweet Potato Fries</div><div class="item-price" style="color:var(--text-light);font-size:0.85rem;">Ask server</div></div>
+          <div class="menu-item" style="padding-right:0;border-left:none;padding-left:0;"><div class="item-name">Tossed Salad</div><div class="item-price" style="color:var(--text-light);font-size:0.85rem;">Ask server</div></div>
+          <div class="menu-item" style="padding-right:0;border-left:none;padding-left:0;"><div class="item-name">Pita Chips</div><div class="item-price" style="color:var(--text-light);font-size:0.85rem;">Ask server</div></div>
+          <div class="menu-item" style="padding-right:0;border-left:none;padding-left:0;"><div class="item-name">Crab Nacho Chips</div><div class="item-price" style="color:var(--text-light);font-size:0.85rem;">Ask server</div></div>
+        </div>
+      </div>
+      <div class="menu-category">
+        <div class="menu-cat-title">Dessert</div>
+        <div class="menu-divider"></div>
+        <div class="menu-items" style="grid-template-columns:1fr;">
+          <div class="menu-item" style="padding-right:0;border-left:none;padding-left:0;"><div class="item-name">Mini Key Lime Pie</div><div class="item-price">$9</div></div>
+          <div class="menu-item" style="padding-right:0;border-left:none;padding-left:0;"><div class="item-name">Turtle Bay Cheesecake</div><div class="item-price">$9</div></div>
+          <div class="menu-item" style="padding-right:0;border-left:none;padding-left:0;"><div class="item-name">CC Cookie</div><div class="item-price">$2</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DRINKS -->
+  <div class="menu-panel" id="panel-drinks">
+    <div class="drinks-grid">
+      <div class="drink-card">
+        <h3>Non-Alcoholic</h3>
+        <div class="drink-card-sub">Cold & refreshing</div>
+        <div class="drink-item"><span>Coke / Diet Coke / Sprite / Sprite Zero</span><span>$3</span></div>
+        <div class="drink-item"><span>Rootbeer / Cherry Coke</span><span>$3</span></div>
+        <div class="drink-item"><span>Lemonade / Sweet Tea / Unsweet Tea</span><span>$3</span></div>
+        <div class="drink-item"><span>Shirley Temple</span><span>$3</span></div>
+        <div class="drink-item"><span>Flavored Lemonade</span><span>$3.50</span></div>
+        <div class="drink-item"><span>Raspberry Lemonade</span><span>$4</span></div>
+        <div class="drink-item"><span>OJ / Grapefruit / Cranberry / Pineapple / Apple Juice</span><span>$3.50</span></div>
+        <div class="drink-item"><span>Chocolate Milk / Milk</span><span>$3.50</span></div>
+        <div class="drink-item"><span>Red Bull</span><span>$4</span></div>
+        <div class="drink-item"><span>Water</span><span>—</span></div>
+        <div class="drink-item"><span>Bagged Ice</span><span>$6</span></div>
+      </div>
+      <div class="drink-card special-card">
+        <h3>Weekly Specials</h3>
+        <div class="drink-card-sub" style="color:rgba(255,255,255,0.5);">Feature drinks</div>
+        <div class="drink-item"><span>Passionfruit Punch</span><span>$8</span></div>
+        <div class="drink-item"><span>Bacardi Palmer</span><span>$6</span></div>
+        <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.1);">
+          <div style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm);margin-bottom:0.75rem;">Wing & Whiskey Wednesday</div>
+          <div class="drink-item"><span>Old Fashioned</span><span class="no-price" style="color:rgba(255,255,255,0.4);font-style:italic;">Ask server</span></div>
+          <div class="drink-item"><span>Daniels Sour</span><span class="no-price" style="color:rgba(255,255,255,0.4);font-style:italic;">Ask server</span></div>
+          <div class="drink-item"><span>Jameson Ginger</span><span class="no-price" style="color:rgba(255,255,255,0.4);font-style:italic;">Ask server</span></div>
+          <div class="drink-item"><span>Manhattan</span><span class="no-price" style="color:rgba(255,255,255,0.4);font-style:italic;">Ask server</span></div>
+          <div class="drink-item"><span>Jim Beam Highball</span><span class="no-price" style="color:rgba(255,255,255,0.4);font-style:italic;">Ask server</span></div>
+        </div>
+      </div>
+      <div class="drink-card">
+        <h3>Drafts on Tap</h3>
+        <div class="drink-card-sub">Local & regional pours</div>
+        <div class="drink-item no-price"><span>Ultra Draft</span><span>Ask server</span></div>
+        <div class="drink-item no-price"><span>Busch Draft</span><span>Ask server</span></div>
+        <div class="drink-item no-price"><span>Blue Moon Draft</span><span>Ask server</span></div>
+        <div class="drink-item no-price"><span>Pseudo Draft</span><span>Ask server</span></div>
+        <div class="drink-item no-price"><span>Iowa Nice Draft</span><span>Ask server</span></div>
+        <div class="drink-item no-price"><span>Clear Lake Spa Draft</span><span>Ask server</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-img-wrap">
+      <img src="C:\Users\zntho\Desktop\Website Construction\TheLanding\images.jpg" />
+      <div class="about-float">
+        <p>4.1★</p>
+        <span>486 Reviews</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <p class="eyebrow">Our Story</p>
+      <h2>A Lakeside <em>Institution</em></h2>
+      <p>Lakeside Landing Kitchen + Bar sits right on the water at Lakeside Inn on South Shore Drive. We're Clear Lake's go-to spot for casual, waterfront dining — whether you're pulling up by boat or walking over from the beach.</p>
+      <p>From our famous Crab Nachos to the Fish N Chips and Wing & Whiskey Wednesdays, we serve up honest, satisfying food with front-row views of the lake. Cold drinks, warm hospitality, and a fireplace for the cooler evenings.</p>
+      <div class="about-pills">
+        <span class="pill">Waterfront Dining</span>
+        <span class="pill">Boat Dock</span>
+        <span class="pill">Outdoor Seating</span>
+        <span class="pill">Fireplace</span>
+        <span class="pill">Vegetarian Options</span>
+        <span class="pill">Kids Menu</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS & CONTACT -->
+<section id="contact">
+  <div style="max-width:1000px;margin:0 auto;">
+    <p class="eyebrow">Find Us</p>
+    <h2 class="section-title">Hours & <em>Contact</em></h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-block">
+      <h3>Hours</h3>
+      <span class="cb-tag">Open 7 Days a Week</span>
+      <div class="hours-row"><span>Monday</span><span>11 AM – 9 PM</span></div>
+      <div class="hours-row"><span>Tuesday</span><span>11 AM – 9 PM</span></div>
+      <div class="hours-row"><span>Wednesday</span><span>11 AM – 9 PM</span></div>
+      <div class="hours-row"><span>Thursday</span><span>11 AM – 9 PM</span></div>
+      <div class="hours-row"><span>Friday</span><span>11 AM – 9 PM</span></div>
+      <div class="hours-row"><span>Saturday</span><span>11 AM – 9 PM</span></div>
+      <div class="hours-row"><span>Sunday</span><span>11 AM – 9 PM</span></div>
+    </div>
+    <div class="contact-block">
+      <h3>Contact Us</h3>
+      <span class="cb-tag">We'd love to hear from you</span>
+      <p>
+        📞 <a href="tel:6413575124">(641) 357-5124</a><br><br>
+        📍 1603 S Shore Dr #2720<br>Clear Lake, IA 50428<br><br>
+        🌐 <a href="https://clover.com" target="_blank">View Menu on Clover</a><br><br>
+        🍽️ <a href="https://clover.com" target="_blank">Order Online</a>
+      </p>
+    </div>
+    <div class="contact-block">
+      <h3>Amenities</h3>
+      <span class="cb-tag">What we offer</span>
+      <p>
+        ⚓ Boat dock access<br>
+        🔥 Outdoor fireplace<br>
+        🌤️ Outdoor seating<br>
+        🥗 Vegetarian options<br>
+        👨‍👩‍👧 Kids menu (Lil' Landers)<br>
+        💳 $10–20 per person avg.
+      </p>
+    </div>
+  </div>
+  <div class="map-placeholder">
+    <div>📍 1603 S Shore Dr #2720, Clear Lake, IA 50428</div>
+    <div style="font-size:0.72rem;"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.1323466303343!2d-93.38515389999999!3d43.1227459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f1a078dbf2a8ff%3A0x99ef1e22b11e41a5!2s1603%20S%20Shore%20Dr%20%232720%2C%20Clear%20Lake%2C%20IA%2050428!5e0!3m2!1sen!2sus!4v1780552612323!5m2!1sen!2sus" width="1000" height="300" style="border:2;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Lakeside <span>Landing</span></div>
+  <p>© 2026 Lakeside Landing Kitchen + Bar · Clear Lake, Iowa · (641) 357-5124</p>
+</footer>
+
+<script>
+function showMenu(tab) {
+  document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.mnav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + tab).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// Scroll nav highlight
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--warm)' : '';
+  });
+});
+</script>
+</body>
+</html>
